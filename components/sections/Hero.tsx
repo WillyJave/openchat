@@ -8,7 +8,7 @@ import { ArrowRight, Play } from 'lucide-react'
 const stats = [
   { value: '3x', label: 'más respuestas' },
   { value: '70%', label: 'menos tiempo' },
-  { value: '+500', label: 'negocios activos' },
+  { value: '+50', label: 'negocios activos' },
 ]
 
 export function Hero() {
