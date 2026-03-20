@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { MessageCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -34,11 +35,15 @@ export function Footer() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand */}
             <div className="lg:col-span-2">
-              <Link href="/" className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 text-accent" />
-                </div>
-                <span className="text-xl font-bold text-white">OpenChat</span>
+              <Link href="/" className="mb-4 inline-block">
+                <Image 
+                  src="/logo-white.svg" 
+                  alt="OpenChat Logo" 
+                  width={140} 
+                  height={40} 
+                  className="h-8 w-auto object-contain"
+                  unoptimized
+                />
               </Link>
               <p className="text-muted max-w-sm">
                 Sistema de ventas automatizado para WhatsApp.

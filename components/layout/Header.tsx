@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { MessageCircle } from 'lucide-react'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -34,10 +34,15 @@ export function Header() {
     >
       <div className="container h-full flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-colors">
-            <MessageCircle className="w-5 h-5 text-accent" />
-          </div>
-          <span className="text-xl font-bold text-white">OpenChat</span>
+          <Image 
+            src="/logo-white.svg" 
+            alt="OpenChat Logo" 
+            width={140} 
+            height={40} 
+            className="h-8 w-auto object-contain"
+            priority
+            unoptimized
+          />
         </Link>
 
         <Button onClick={scrollToForm} size="sm">
