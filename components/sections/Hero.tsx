@@ -4,14 +4,12 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { ArrowRight, Play } from 'lucide-react'
-
-const stats = [
-  { value: '3x', label: 'más respuestas' },
-  { value: '70%', label: 'menos tiempo' },
-  { value: '+50', label: 'negocios activos' },
-]
+import { useLanguage } from '@/lib/i18n'
 
 export function Hero() {
+  const { t } = useLanguage()
+  const h = t.hero
+
   const scrollToForm = () => {
     const formSection = document.getElementById('cta-form')
     formSection?.scrollIntoView({ behavior: 'smooth' })
@@ -33,7 +31,7 @@ export function Hero() {
             transition={{ duration: 0.5 }}
           >
             <Badge variant="accent" className="mb-6">
-              Para ecommerce con +50 mensajes/día
+              {h.badge}
             </Badge>
           </motion.div>
 
@@ -43,9 +41,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Convierte tu{' '}
-            <span className="text-accent">WhatsApp</span>{' '}
-            en una máquina de ventas automática
+            {h.title1}{' '}
+            <span className="text-accent">{h.titleHighlight}</span>{' '}
+            {h.title2}
           </motion.h1>
 
           <motion.p
@@ -54,8 +52,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Sistema de ventas que atiende, califica y cierra clientes por WhatsApp
-            las 24 horas, multiplicando tus conversiones sin aumentar tu equipo.
+            {h.subtitle}
           </motion.p>
 
           <motion.div
@@ -65,12 +62,12 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <Button size="lg" onClick={scrollToForm}>
-              Diagnóstico gratis
+              {h.ctaPrimary}
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button variant="secondary" size="lg">
               <Play className="mr-2 w-5 h-5" />
-              Ver demo
+              {h.ctaSecondary}
             </Button>
           </motion.div>
 
@@ -80,7 +77,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            {stats.map((stat) => (
+            {h.stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-3xl sm:text-4xl font-bold text-accent mb-1">
                   {stat.value}
