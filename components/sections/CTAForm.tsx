@@ -116,7 +116,7 @@ export function CTAForm() {
                     />
                     <Select
                       placeholder={f.volumePlaceholder}
-                      options={f.volumeOptions as { value: string; label: string }[]}
+                      options={[...f.volumeOptions]}
                       {...register('volume')}
                       error={errors.volume?.message}
                     />
